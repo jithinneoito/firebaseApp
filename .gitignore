@@ -1,0 +1,98 @@
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# Android
+#
+*.apk
+*.aab
+*.ap_
+
+# Gradle
+#
+.gradle/
+build/
+
+# Node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+
+# React Native
+#
+# React Native Debugger
+rn-debugger/
+# Flipper
+/.flipper/
+# Android Studio
+/.idea/
+# VS Code
+.vscode/
+# Expo
+/.expo/
+# Metro Bundler
+/metro-cache/
+/metro.log
+# Android build output
+/android/app/debug/
+/android/app/release/
+
+# CocoaPods
+#
+Pods/
+# Recommended to keep these commented out if using CocoaPods
+# Pods/
+# TestFlight builds
+*.ipa
+*.xcarchive
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/#source-control
+
+# Build generated
+# Reference: https://git-lfs.github.com/
+*.ipa
+*.apk
+*.jar
+
+# Other
+#
+*.log
+*.tmp
+*.patch
+*.swp
+*.out
+*.orig
+*.bak
+*.tar.gz
+*.tgz
+*.tar.xz
+*.zip
+*.sublime-project
+*.sublime-workspace
+*.xcworkspace
+*.xcuserstate
+
+# Firebase
+#
+firebase.json
