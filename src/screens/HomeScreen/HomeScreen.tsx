@@ -3,29 +3,30 @@ import React, { useEffect, useState } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 import TodoList from '../TodoListSreen/TodoList';
-import { styles } from './styles';
+import { styles } from './styles'
+import { useDispatch, useSelector } from 'react-redux';
+import todoSlice from '../../redux/slices/todoList.slice';
+import { SET_TODO_LIST } from '../../redux/actions/app.actions';
+import { RootState } from '../../redux/store/rootReducer';
 
-// import crashlytics from '@react-native-firebase/crashlytics';
+// import crashlytics from '@react-native-firebase/crashlytics'
 
 const FirstScreen = () => {
-  const [todo, setTodo] = useState<Array<any>>([]);
+  // const [todo, setTodo] = useState<Array<any>>([]);
   const [newTodo, setNewTodo] = useState<string>('');
+  const dispatch = useDispatch();
+  const { data } = useSelector((state: RootState) => state.todo);
+
+  console.log('data', data);
+  
 
   useEffect(() => {
-    fetchTodoList()
+    dispatch({type: SET_TODO_LIST});
   }, []);
+  
+
 
   //fetching collection of data from the firebase
-
-  const fetchTodoList = async () => {
-    try {
-      const querySnapshot = await firestore().collection('todos').get();
-      const newData = querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-      setTodo(newData);
-    } catch (error) {
-      console.error('Error getting documents: ', error);
-    }
-  };
 
   //user session logout
 
@@ -47,7 +48,6 @@ const FirstScreen = () => {
         })
         .then(() => {
           setNewTodo('');
-          fetchTodoList();
         })
         .catch((error) => {
           console.error('Error adding todo: ', error);
@@ -73,14 +73,14 @@ const FirstScreen = () => {
       .update({
         complete: !item.complete,
       });
-    fetchTodoList()
+      dispatch({type: SET_TODO_LIST});
   };
 
 
   return (
     <View style={styles.container}>
       <Button title="Press me to LogOut" onPress={handleAppearanceChange} />
-      <TodoList todos={todo} onTodoPress={handleTodoPress} />
+      <TodoList todos={data} onTodoPress={handleTodoPress} />
       <TextInput
         style={styles.input}
         value={newTodo}
