@@ -17,9 +17,6 @@ const FirstScreen = () => {
   const dispatch = useDispatch();
   const { data } = useSelector((state: RootState) => state.todo);
 
-  console.log('data', data);
-  
-
   useEffect(() => {
     dispatch({type: SET_TODO_LIST});
   }, []);
