@@ -3,13 +3,13 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 export type Todo = [];
 interface AppState {
   data: Todo;
-  // Other properties in your app slice
 }
 const initialState: AppState = {
   data: [],
 };
 
 export const setTodo = (state: AppState, action: PayloadAction<Todo>) => {
+  console.log('state', state);
   state.data = action.payload;
 };
 

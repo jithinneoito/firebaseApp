@@ -22,9 +22,6 @@ const FirstScreen = () => {
   }, []);
   
 
-
-  //fetching collection of data from the firebase
-
   //user session logout
 
   const handleAppearanceChange = () => {
@@ -63,7 +60,6 @@ const FirstScreen = () => {
   // for complete the todo item
 
   const handleTodoPress = async (item: any) => {
-    
     await firestore()
       .collection('todos')
       .doc(item?.id)
